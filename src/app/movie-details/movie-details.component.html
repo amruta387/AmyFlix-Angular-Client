@@ -1,0 +1,22 @@
+<div class="movie-details-container">
+    <h2 class="movie-title">{{ movieDetails.title }}</h2>
+
+    <!-- Movie Image -->
+    <img *ngIf="movieDetails.poster; else noImage" [src]="movieDetails.poster"
+        [alt]="movieDetails.title || 'Movie Poster'" class="movie-image">
+
+    <!-- Fallback for No Image -->
+    <ng-template #noImage>
+        <p class="no-image-text">No Image Available</p>
+    </ng-template>
+
+    <!-- Movie Info -->
+    <div class="movie-info">
+        <p><strong>Genre:</strong> {{ movieDetails.genre?.name }}</p>
+        <p><strong>Director:</strong> {{ movieDetails.director?.name }}</p>
+        <p><strong>Release Year:</strong> {{ movieDetails.release_year }}</p>
+    </div>
+
+    <!-- Close Button -->
+    <button mat-button (click)="closeDialog()" color="primary">Close</button>
+</div>

@@ -1,0 +1,45 @@
+.movie-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers content vertically */
+    background: #1E1E1E;
+    color: #FFFFFF;
+    padding: 20px; /* Reduced padding to make the dialog smaller */
+    border-radius: 12px;
+    width: 92%; /* Adjust width to make dialog smaller */
+    max-width: 600px; /* Reduced max-width of the dialog box */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: auto;
+    height: auto;
+    min-height: 400px; /* Ensures a minimum height */
+    overflow: hidden; /* Prevents overflow inside the container */
+}
+
+.movie-title {
+    font-size: 1.6rem; /* Reduced font size for title */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.movie-image {
+    width: 80%; /* Keeps the image smaller */
+    max-width: 250px; /* Further reduced image size */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #333;
+}
+
+.no-image-text {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.movie-info {
+    font-size: 1.1rem; /* Slightly smaller font for movie info */
+    line-height: 1.5;
+    
+}

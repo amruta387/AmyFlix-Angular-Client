@@ -1,0 +1,21 @@
+<div class="movies-container">
+    <div *ngFor="let movie of movies" class="movie-card">
+        <h3>{{ movie.title }}</h3>
+
+        <!-- Show image only if imageURL exists -->
+        <img *ngIf="movie.poster; else noImage" [src]="movie.poster" [alt]="movie.title || 'Movie image'"
+            class="movie-image">
+
+        <!-- Fallback in case there is no image -->
+        <ng-template #noImage>
+            <p>No Image Available</p>
+        </ng-template>
+
+        <button mat-button color="primary" (click)="openMovieDetails(movie._id)">
+            View Details
+        </button>
+        <button mat-button color="accent" (click)="addToFavorites(movie._id)">
+            Add to Favorites
+        </button>
+    </div>
+</div>

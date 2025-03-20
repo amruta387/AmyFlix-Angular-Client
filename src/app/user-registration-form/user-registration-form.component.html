@@ -1,0 +1,61 @@
+<h2>Registration</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <!-- Username -->
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required autocomplete="username" />
+        <mat-error [ngClass]="{ 'visible': f['username'].errors?.['required'] && (f['username'].dirty || f['username'].touched) }">
+            Username is required.
+        </mat-error>
+        <mat-error [ngClass]="{ 'visible': f['username'].errors?.['minlength'] && (f['username'].dirty || f['username'].touched) }">
+            Username must be at least 3 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required autocomplete="new-password" />
+        <mat-error [ngClass]="{ 'visible': f['password'].errors?.['required'] && (f['password'].dirty || f['password'].touched) }">
+            Password is required.
+        </mat-error>
+        <mat-error [ngClass]="{ 'visible': f['password'].errors?.['minlength'] && (f['password'].dirty || f['password'].touched) }">
+            Password must be at least 8 characters.
+        </mat-error>
+        <mat-error [ngClass]="{ 'visible': f['password'].errors?.['pattern'] && (f['password'].dirty || f['password'].touched) }">
+            Password must contain uppercase, lowercase, number, and special character.
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required autocomplete="email" />
+        <mat-error [ngClass]="{ 'visible': f['email'].errors?.['required'] && (f['email'].dirty || f['email'].touched) }">
+            Email is required.
+        </mat-error>
+        <mat-error [ngClass]="{ 'visible': f['email'].errors?.['email'] && (f['email'].dirty || f['email'].touched) }">
+            Enter a valid email.
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Name -->
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required autocomplete="name" />
+        <mat-error [ngClass]="{ 'visible': f['name'].errors?.['required'] && (f['name'].dirty || f['name'].touched) }">
+            Name is required.
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Birthday -->
+    <mat-form-field appearance="outline">
+        <mat-label>Birthday</mat-label>
+        <input matInput formControlName="birthday" type="date" />
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">
+        Register
+    </button>
+</form>
