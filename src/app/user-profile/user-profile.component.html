@@ -1,0 +1,32 @@
+<app-navigation></app-navigation>
+
+<div class="profile-container">
+    <h2>User Profile</h2>
+
+    <div *ngIf="!isEditing">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Birthday:</strong> {{ user.birthday | date }}</p>
+
+        <button (click)="toggleEdit()">Edit Profile</button>
+        <button (click)="deleteAccount()" class="delete-btn">Delete Account</button>
+    </div>
+
+    <div *ngIf="isEditing">
+        <label>Username:</label>
+        <input type="text" [(ngModel)]="updatedUser.username" />
+
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="updatedUser.name" />
+
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="updatedUser.email" />
+
+        <label>Birthday:</label>
+        <input type="date" [(ngModel)]="updatedUser.birthday" />
+
+        <button (click)="saveProfile()">Save</button>
+        <button (click)="toggleEdit()">Cancel</button>
+    </div>
+</div>

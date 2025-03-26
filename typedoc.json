@@ -1,0 +1,13 @@
+{
+    "entryPointStrategy": "expand",
+    "entryPoints": [
+        "src/app"
+    ],
+    "out": "docs",
+    "includeVersion": true,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeExternals": true,
+    "name": "AmyFlix-Angular-Client",
+    "theme": "default"
+}

@@ -1,0 +1,26 @@
+<app-navigation></app-navigation>
+
+<div class="movies-container">
+    <div *ngFor="let movie of movies" class="movie-card">
+        <h3>{{ movie.title }}</h3>
+
+        <!-- Movie poster with fallback if no image -->
+        <img *ngIf="movie.poster; else noImage" [src]="movie.poster" [alt]="movie.title || 'Movie image'"
+            class="movie-image">
+
+        <ng-template #noImage>
+            <p>No Image Available</p>
+        </ng-template>
+
+        <!-- Movie Details Button -->
+        <button mat-button color="primary" (click)="openMovieDetails(movie)">View Details</button>
+
+        <!-- Add/Remove Favorites Button -->
+        <button *ngIf="!isFavorite(movie._id)" mat-raised-button color="primary" (click)="addToFavorites(movie._id)">
+            Add to Favorites
+        </button>
+        <button *ngIf="isFavorite(movie._id)" mat-raised-button color="warn" (click)="removeFromFavorites(movie._id)">
+            Remove from Favorites
+        </button>
+    </div>
+</div>
